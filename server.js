@@ -8,8 +8,6 @@ const connectDB = require('./config/db');
 // rest object
 const app = express();
 
-
-
 // middlewares
 dotenv.config();
 
@@ -20,19 +18,18 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 
-
 // routes
 app.use("/api/v1/test", require("./routes/testRoutes"));
 app.use("/api/v1/user", require('./routes/userRoutes'));
 app.use("/api/v1/todo", require('./routes/todoRoutes'))
+
+// health check by cron job
 app.get("/api/v1/health", (req, res) => {
     res.status(200).json({
         success: true,
         message: "Server is running"
     });
 });
-
-
 
 // port
 const port = process.env.PORT || 3030;

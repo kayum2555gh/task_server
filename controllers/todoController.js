@@ -30,7 +30,6 @@ const createTodo = async (req, res) => {
     }
 }
 
-
 // get all todos
 const getAllTodo = async (req, res) => {
     try {
@@ -83,7 +82,6 @@ const deleteTodo =async (req, res) => {
         
         // find by id
         const todo = await todoModel.findByIdAndDelete({_id:id});
-        
         if(!todo){
             return res.status(404).send({
                 success:false,
