@@ -25,7 +25,7 @@ app.use(cors());
 app.use("/api/v1/test", require("./routes/testRoutes"));
 app.use("/api/v1/user", require('./routes/userRoutes'));
 app.use("/api/v1/todo", require('./routes/todoRoutes'))
-app.get("/health", (req, res) => {
+app.get("/api/v1/health", (req, res) => {
     res.status(200).json({
         success: true,
         message: "Server is running"
